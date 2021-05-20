@@ -1,0 +1,60 @@
+﻿@page
+@model WebInsuranceCompany.Pages.TypesOfPolicies.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h1>Редактирование</h1>
+
+<h4>Вид полиса</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TypeOfPolicy.TypeOfPolicyId" />
+            <div class="form-group">
+                <label asp-for="TypeOfPolicy.Name" class="control-label"></label>
+                <input asp-for="TypeOfPolicy.Name" class="form-control" />
+                <span asp-validation-for="TypeOfPolicy.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfPolicy.Description" class="control-label"></label>
+                <input asp-for="TypeOfPolicy.Description" class="form-control" />
+                <span asp-validation-for="TypeOfPolicy.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfPolicy.Conditions" class="control-label"></label>
+                <input asp-for="TypeOfPolicy.Conditions" class="form-control" />
+                <span asp-validation-for="TypeOfPolicy.Conditions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfPolicy.RiskId1" class="control-label"></label>
+                <select asp-for="TypeOfPolicy.RiskId1" class="form-control" asp-items="ViewBag.RiskId1"></select>
+                <span asp-validation-for="TypeOfPolicy.RiskId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfPolicy.RiskId2" class="control-label"></label>
+                <select asp-for="TypeOfPolicy.RiskId2" class="form-control" asp-items="ViewBag.RiskId2"></select>
+                <span asp-validation-for="TypeOfPolicy.RiskId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfPolicy.RiskId3" class="control-label"></label>
+                <select asp-for="TypeOfPolicy.RiskId3" class="form-control" asp-items="ViewBag.RiskId3"></select>
+                <span asp-validation-for="TypeOfPolicy.RiskId3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

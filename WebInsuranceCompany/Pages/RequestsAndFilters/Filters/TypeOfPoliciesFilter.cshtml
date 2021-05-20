@@ -1,0 +1,35 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.Filters.TypeOfPoliciesFilterModel
+@{
+    <h1>Список полисов</h1>
+
+   
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].PolicyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].TypeOfPolicyId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Policy)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PolicyId)
+                    </td>
+                    <td>
+                        @Model.TypeOfPolicy.Name
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

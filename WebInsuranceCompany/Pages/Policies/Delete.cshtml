@@ -1,0 +1,76 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Policies.DeleteModel
+
+@{
+    ViewData["Title"] = "Удаление";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы действительно хотите удалить запись?</h3>
+<div>
+    <h4>Полис</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.DateOfStart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.DateOfStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.DateOfFinish)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.DateOfFinish)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.Cost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.Cost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.PaymentAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.PaymentAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.PaymentMark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.PaymentMark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.MarkOfEnd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.MarkOfEnd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.Client)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.Client.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.Employee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.Employee.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.TypeOfPolicy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.TypeOfPolicy.Conditions)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Policy.PolicyId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Назад</a>
+    </form>
+</div>

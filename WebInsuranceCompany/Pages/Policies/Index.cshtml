@@ -1,0 +1,84 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Policies.IndexModel
+
+@{
+    ViewData["Title"] = "Полисы";
+}
+
+<h1>Полисы</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].DateOfStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].DateOfFinish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].PaymentAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].PaymentMark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].MarkOfEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy[0].TypeOfPolicy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Policy) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfFinish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarkOfEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfPolicy.Conditions)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PolicyId"><font color="green">Редактировать</font></a> |
+                <a asp-page="./Details" asp-route-id="@item.PolicyId">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PolicyId"><font color="FireBrick">Удалить</font></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,76 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Policies.CreateModel
+
+@{
+    ViewData["Title"] = "Создание";
+}
+
+<h1>Создание</h1>
+
+<h4>Полис</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Policy.PolicyId" class="control-label"></label>
+                <input asp-for="Policy.PolicyId" class="form-control" />
+                <span asp-validation-for="Policy.PolicyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.DateOfStart" class="control-label"></label>
+                <input asp-for="Policy.DateOfStart" class="form-control" />
+                <span asp-validation-for="Policy.DateOfStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.DateOfFinish" class="control-label"></label>
+                <input asp-for="Policy.DateOfFinish" class="form-control" />
+                <span asp-validation-for="Policy.DateOfFinish" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.Cost" class="control-label"></label>
+                <input asp-for="Policy.Cost" class="form-control" />
+                <span asp-validation-for="Policy.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.PaymentAmount" class="control-label"></label>
+                <input asp-for="Policy.PaymentAmount" class="form-control" />
+                <span asp-validation-for="Policy.PaymentAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.PaymentMark" class="control-label"></label>
+                <input asp-for="Policy.PaymentMark" class="form-control" />
+                <span asp-validation-for="Policy.PaymentMark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.MarkOfEnd" class="control-label"></label>
+                <input asp-for="Policy.MarkOfEnd" class="form-control" />
+                <span asp-validation-for="Policy.MarkOfEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.ClientId" class="control-label"></label>
+                <select asp-for="Policy.ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.TypeOfPolicyId" class="control-label"></label>
+                <select asp-for="Policy.TypeOfPolicyId" class ="form-control" asp-items="ViewBag.TypeOfPolicyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Policy.EmployeeId" class="control-label"></label>
+                <select asp-for="Policy.EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

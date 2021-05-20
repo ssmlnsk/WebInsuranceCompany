@@ -1,0 +1,66 @@
+﻿@page
+@model WebInsuranceCompany.Pages.TypesOfPolicies.IndexModel
+
+@{
+    ViewData["Title"] = "Виды полисов";
+}
+
+<h1>Виды полисов</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy[0].Conditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy[0].RiskId1Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy[0].RiskId2Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy[0].RiskId3Navigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TypeOfPolicy) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conditions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskId1Navigation.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskId2Navigation.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskId3Navigation.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TypeOfPolicyId"><font color="green">Редактировать</font></a> |
+                <a asp-page="./Details" asp-route-id="@item.TypeOfPolicyId">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TypeOfPolicyId"><font color="FireBrick">Удалить</font></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

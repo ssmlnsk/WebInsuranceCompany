@@ -1,0 +1,32 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.Filters.PaymentMarkFilterModel
+@{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].PolicyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].PaymentMark)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Policy)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PolicyId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentMark)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

@@ -1,0 +1,73 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Policies.DetailsModel
+
+@{
+    ViewData["Title"] = "Подробнее";
+}
+
+<h1>Подробнее</h1>
+
+<div>
+    <h4>Полис</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.DateOfStart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.DateOfStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.DateOfFinish)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.DateOfFinish)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.Cost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.Cost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.PaymentAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.PaymentAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.PaymentMark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.PaymentMark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.MarkOfEnd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.MarkOfEnd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.Client)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.Client.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.Employee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.Employee.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Policy.TypeOfPolicy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Policy.TypeOfPolicy.Conditions)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Policy.PolicyId">Редактировать</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

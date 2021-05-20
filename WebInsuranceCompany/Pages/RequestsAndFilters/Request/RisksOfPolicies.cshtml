@@ -1,0 +1,74 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.Request.RisksOfPoliciesModel
+@{
+    <h1>Риски полисов</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfPolicy[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfPolicy[0].RiskId1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfPolicy[0].RiskId2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfPolicy[0].RiskId3)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TypeOfPolicy)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <th>
+                        @{
+                            try
+                            {
+                                @Model.Risk.First(r => r.RiskId == item.RiskId1).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </th>
+                    <th>
+                        @{
+                            try
+                            {
+                                @Model.Risk.First(r => r.RiskId == item.RiskId2).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </th>
+                    <th>
+                        @{
+                            try
+                            {
+                                @Model.Risk.First(r => r.RiskId == item.RiskId3).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.Request.PersonnelDepartmentModel
+@{
+    <h1>Отдел кадров</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].PostId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Employee)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Post.First(r => r.PostId == item.PostId).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

@@ -1,0 +1,72 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Сотрудники";
+}
+
+<h1>Сотрудники</h1>
+
+<p>
+    <a asp-page="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].PassportData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Post)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Post.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EmployeeId"><font color="green">Редактировать</font></a> |
+                <a asp-page="./Details" asp-route-id="@item.EmployeeId">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EmployeeId"><font color="FireBrick">Удалить</font></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

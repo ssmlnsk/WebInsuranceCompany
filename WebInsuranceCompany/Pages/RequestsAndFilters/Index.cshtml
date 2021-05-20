@@ -1,0 +1,81 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.IndexModel
+@{
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none">
+                        Запросы
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/RequestsAndFilters/Request/PersonnelDepartment">Отдел кадров</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/RequestsAndFilters/Request/RisksOfPolicies">Риски полисов</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/RequestsAndFilters/Request/ListOfClients">Список клиентов</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/RequestsAndFilters/Request/ListOfPolicies">Список полисов</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-decoration: none">
+                        Фильтры
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <form>
+                        Отобразить сотрудников с должностью:
+                        <select asp-items="Model.Post" name="id" class="form-control-sm">
+                            <option value="-1">Должность не выбрана</option>
+                        </select>
+                        <button asp-page="filters/EmployeeFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить клиентов данных групп:
+                        <select asp-items="Model.Client" name="id" class="form-control-sm">
+                            <option value="-1">Группа не выбрана</option>
+                        </select>
+                        <button asp-page="filters/ClientFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить полисы данного вида:
+                        <select asp-items="Model.Type" name="id" class="form-control-sm">
+                            <option value="-1">Вид полиса не выбран</option>
+                        </select>
+                        <button asp-page="filters/PoliciesTypeFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить полисы, по которым производились (не производились) выплаты:
+                        <select asp-items="Model.Mark" name="Mark" class="form-control-sm">
+                            <option value="-1">Не выбран</option>
+                        </select>
+                        <button asp-page="filters/PaymentMarkFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+
+                    <form>
+                        Отобразить оконченные (неоконченные) полисы:
+                        <select asp-items="Model.Data" name="End" class="form-control-sm">
+                            <option value="-1">Не выбран</option>
+                        </select>
+                        <button asp-page="filters/PoliciesDataFilter" class="btn btn-primary">Отфильтровать</button>
+                    </form>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+}

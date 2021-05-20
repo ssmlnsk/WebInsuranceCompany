@@ -1,0 +1,49 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Risks.CreateModel
+
+@{
+    ViewData["Title"] = "Создание";
+}
+
+<h1>Создание</h1>
+
+<h4>Риск</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Risk.RiskId" class="control-label"></label>
+                <input asp-for="Risk.RiskId" class="form-control" />
+                <span asp-validation-for="Risk.RiskId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Risk.Name" class="control-label"></label>
+                <input asp-for="Risk.Name" class="form-control" />
+                <span asp-validation-for="Risk.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Risk.Description" class="control-label"></label>
+                <input asp-for="Risk.Description" class="form-control" />
+                <span asp-validation-for="Risk.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Risk.AverageProbability" class="control-label"></label>
+                <input asp-for="Risk.AverageProbability" class="form-control" />
+                <span asp-validation-for="Risk.AverageProbability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

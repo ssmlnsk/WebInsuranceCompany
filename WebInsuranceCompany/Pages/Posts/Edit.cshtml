@@ -1,0 +1,50 @@
+﻿@page
+@model WebInsuranceCompany.Pages.Posts.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h1>Редактирование</h1>
+
+<h4>Должность</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Post.PostId" />
+            <div class="form-group">
+                <label asp-for="Post.Name" class="control-label"></label>
+                <input asp-for="Post.Name" class="form-control" />
+                <span asp-validation-for="Post.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.Requirements" class="control-label"></label>
+                <input asp-for="Post.Requirements" class="form-control" />
+                <span asp-validation-for="Post.Requirements" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.Salary" class="control-label"></label>
+                <input asp-for="Post.Salary" class="form-control" />
+                <span asp-validation-for="Post.Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.Responsibilities" class="control-label"></label>
+                <input asp-for="Post.Responsibilities" class="form-control" />
+                <span asp-validation-for="Post.Responsibilities" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

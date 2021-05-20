@@ -1,0 +1,41 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.Request.ListOfClientsModel
+@{
+    <h1>Список клиентов</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Client[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Client[0].GroupId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Client)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.GroupOfClients.First(r => r.GroupId == item.GroupId).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,74 @@
+﻿@page
+@model WebInsuranceCompany.Pages.RequestsAndFilters.Request.ListOfPoliciesModel
+@{
+    <h1>Список полисов</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].PolicyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].TypeOfPolicyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].ClientId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Policy[0].EmployeeId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Policy)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PolicyId)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.TypeOfPolicy.First(r => r.TypeOfPolicyId == item.TypeOfPolicyId).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Client.First(r => r.ClientId == item.ClientId).FullName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Employee.First(r => r.EmployeeId == item.EmployeeId).FullName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
