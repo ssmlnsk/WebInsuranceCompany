@@ -27,7 +27,7 @@ namespace WebInsuranceCompany
         {
             services.AddRazorPages();
             services.AddDbContext<InsuranceCompanyContext>(options =>
-                    options.UseSqlServer("Data Source=SSMLNSK;Initial Catalog=InsuranceCompany;Integrated Security=True"));
+                    options.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=InsuranceCompany;Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

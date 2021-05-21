@@ -33,7 +33,7 @@ namespace WebInsuranceCompany.Data
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlite("Data Source=C:\\Users\\Даша\\Source\\Repos\\ssmlnsk\\WebInsuranceCompany\\InsuranceCompany.db");
-                optionsBuilder.UseSqlServer("Data Source=SSMLNSK;Initial Catalog=InsuranceCompany.db;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=InsuranceCompany.db;Integrated Security=True");
             }
         }
 
