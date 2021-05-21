@@ -23,19 +23,19 @@ namespace WebInsuranceCompany.Pages.RequestsAndFilters.Filters
         public Post Post { get; set; }
         public async Task<IActionResult> OnGetAsync(long? id)
         {
-           
             if (id == null)
             {
                 return NotFound();
             }
 
-            Post = await _context.Post.FirstOrDefaultAsync(m => m.PostId == id);
+            Post = _context.Post.First(m => m.PostId == id);
 
             if (Post == null)
             {
                 return NotFound();
             }
-            Employee = await _context.Employee.Where(m => m.PostId == Post.PostId).ToListAsync();
+            Employee = await _context.Employee
+                .Include(e => e.Post).Where(m => m.PostId == Post.PostId).ToListAsync();
             return Page();
         }
     }

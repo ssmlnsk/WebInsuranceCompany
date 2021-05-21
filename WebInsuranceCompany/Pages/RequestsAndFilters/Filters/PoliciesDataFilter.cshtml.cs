@@ -29,13 +29,14 @@ namespace WebInsuranceCompany.Pages.RequestsAndFilters.Filters
                 return NotFound();
             }
 
-            Policy_ = await _context.Policy.FirstOrDefaultAsync(m => m.MarkOfEnd == End);
+            Policy_ = _context.Policy.First(m => m.MarkOfEnd == End);
 
             if (Policy_ == null)
             {
                 return NotFound();
             }
-            Policy = await _context.Policy.Where(m => m.MarkOfEnd == Policy_.MarkOfEnd).ToListAsync();
+            Policy = await _context.Policy
+                .Include(e => e.PolicyId).Where(m => m.MarkOfEnd == Policy_.MarkOfEnd).ToListAsync();
             return Page();
         }
     }

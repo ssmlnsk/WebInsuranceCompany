@@ -28,13 +28,14 @@ namespace WebInsuranceCompany.Pages.RequestsAndFilters.Filters
                 return NotFound();
             }
 
-            Groups = await _context.GroupOfClients.FirstOrDefaultAsync(m => m.GroupId == id);
+            Groups = _context.GroupOfClients.First(m => m.GroupId == id);
 
             if (Groups == null)
             {
                 return NotFound();
             }
-            Client = await _context.Client.Where(m => m.GroupId == Groups.GroupId).ToListAsync();
+            Client = await _context.Client
+                .Include(e => e.Group).Where(m => m.GroupId == Groups.GroupId).ToListAsync();
             return Page();
         }
     }

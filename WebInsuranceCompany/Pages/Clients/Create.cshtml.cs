@@ -21,7 +21,7 @@ namespace WebInsuranceCompany.Pages.Clients
 
         public IActionResult OnGet()
         {
-        ViewData["GroupId"] = new SelectList(_context.GroupOfClients, "GroupId", "Description");
+        ViewData["GroupId"] = new SelectList(_context.GroupOfClients, "GroupId", "Name");
             return Page();
         }
 

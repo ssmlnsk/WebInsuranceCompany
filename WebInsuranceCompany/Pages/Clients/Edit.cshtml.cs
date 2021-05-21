@@ -37,7 +37,7 @@ namespace WebInsuranceCompany.Pages.Clients
             {
                 return NotFound();
             }
-           ViewData["GroupId"] = new SelectList(_context.GroupOfClients, "GroupId", "Description");
+           ViewData["GroupId"] = new SelectList(_context.GroupOfClients, "GroupId", "Name");
             return Page();
         }
 

@@ -1,6 +1,20 @@
 ﻿@page
 @model WebInsuranceCompany.Pages.RequestsAndFilters.IndexModel
 @{
+
+    <script>
+    function BtnFun(Classname, obj) {
+        var value = obj.value;
+        var name = "." + Classname;
+        if (value[0] != "-") {
+            $(name).prop('disabled', false);
+        }
+        else {
+            $(name).prop('disabled', true);
+        }
+    }
+    </script>
+
     <div class="accordion" id="accordionExample">
         <div class="card">
             <div class="card-header" id="headingOne">
